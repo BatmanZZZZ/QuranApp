@@ -19,29 +19,25 @@ public class MainActivity2 extends AppCompatActivity {
 
     int range;
 
-    TextView first ;
+    EditText first ;
 
-    EditText second ;
-    EditText third ;
-    ScrollView fourth;
-    Button fifth;
+    Button second;
 
-    TextView sixth;
+    TextView third;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        first = findViewById(R.id.textView);
 
-        second = findViewById(R.id.editTextTextPersonName);
-        third= findViewById(R.id.editTextTextPersonName2);
-        fourth = findViewById(R.id.scrollView3);
 
-        fifth= findViewById(R.id.button3);
+        first = findViewById(R.id.editTextTextPersonName);
 
-        sixth = findViewById(R.id.sixth);
+
+        second= findViewById(R.id.button);
+
+        third = findViewById(R.id.sixth);
 
 
 
@@ -54,28 +50,39 @@ public class MainActivity2 extends AppCompatActivity {
              start = intent.getIntExtra("start",0);
              range = intent.getIntExtra("range",0);
 
-            // Display the data in the TextView
-            first.setText(data);
+
+
+
+
+            QuranArabicText test1 = new QuranArabicText();
+
+            String[] data1 =test1.GetData(start,start + range);
+
+            StringBuilder stringBuilder = new StringBuilder();
+            for (String text : data1) {
+                stringBuilder.append(text).append("\n");
+            }
+
+            third.setText(stringBuilder);
+
+            // Display the data in the TextVie
         }
-        fifth.setOnClickListener(new View.OnClickListener() {
+        second.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int startinput = Integer.parseInt(second.getText().toString());
-                int rangeinput =Integer.parseInt(third.getText().toString());
+                int startinput = Integer.parseInt(first.getText().toString());
+
+
                 QuranArabicText test = new QuranArabicText();
-                String[] data=test.GetData(start+startinput-1,start+startinput+rangeinput-1);
+                String data1=test.GetAyat(start+startinput);
 
-                StringBuilder stringBuilder = new StringBuilder();
-                for (String text : data) {
-                    stringBuilder.append(text).append("\n");
-                }
-
-
-
-                sixth.setText(stringBuilder);
+                ///////////////////////////////////
+                Intent intent = new Intent(MainActivity2.this, MainActivity3.class);
+                intent.putExtra("Ayat", data1);
 
 
 
+                startActivity(intent);
 
             }
         });
@@ -6447,6 +6454,12 @@ class QuranArabicText {
             listTemp.add(QuranArabicText[i].toString());
         }
         String[] list = listTemp.toArray(new String[]{});
+
+        return list;
+    }
+    public String GetAyat(int StartIndex ) {
+
+        String list = QuranArabicText[StartIndex-1].toString();
 
         return list;
     }

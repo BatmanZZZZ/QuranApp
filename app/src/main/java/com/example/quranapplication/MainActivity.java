@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 String selectedItem = finalAa.get(position);
                 Intent intent = new Intent(MainActivity.this, MainActivity2.class);
                 intent.putExtra("name", selectedItem);
+
                 QDH obj = new QDH();
 
                 int start = obj.getSurahStart(position);
@@ -50,11 +51,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-
-
-
 
 
     }
