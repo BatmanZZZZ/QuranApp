@@ -60,7 +60,7 @@ public class MainActivity2 extends AppCompatActivity {
 
             StringBuilder stringBuilder = new StringBuilder();
             for (String text : data1) {
-                stringBuilder.append(text).append("\n");
+                stringBuilder.append(text);
             }
 
             third.setText(stringBuilder);
@@ -78,7 +78,18 @@ public class MainActivity2 extends AppCompatActivity {
 
                 ///////////////////////////////////
                 Intent intent = new Intent(MainActivity2.this, MainActivity3.class);
-                intent.putExtra("Ayat", data1);
+
+                String Data2= "This Ayat Not Exist";
+
+                if(startinput >= (start+range))
+                {
+                    intent.putExtra("Ayat", Data2);
+                }
+                else{
+                    intent.putExtra("Ayat", data1);
+                }
+
+
 
 
 

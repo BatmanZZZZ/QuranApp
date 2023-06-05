@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#4BCFA9D5"
     tools:context=".MainActivity2"
     tools:layout_editor_absoluteX="11dp"
     tools:layout_editor_absoluteY="-85dp">
@@ -13,11 +14,12 @@
         android:layout_width="181dp"
         android:layout_height="63dp"
         android:layout_marginTop="56dp"
-        android:layout_marginEnd="148dp"
+        android:layout_marginEnd="152dp"
         android:layout_marginBottom="50dp"
+        android:digits="0123456789"
         android:ems="10"
         android:hint="     Enter Ayat no"
-        android:inputType="textPersonName"
+        android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,6 +30,7 @@
         android:layout_height="0dp"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
+        android:background="#4BCFA9D5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +41,7 @@
             android:id="@+id/sixth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"/>
+            android:padding="16dp" />
     </ScrollView>
 
     <Button
