@@ -81,7 +81,7 @@ public class MainActivity2 extends AppCompatActivity {
 
                 String Data2= "This Ayat Not Exist";
 
-                if(startinput >= (start+range))
+                if(startinput > range)
                 {
                     intent.putExtra("Ayat", Data2);
                 }
